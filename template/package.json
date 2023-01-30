@@ -1,7 +1,7 @@
 {
-  "name": "@zcorky/action-setup-docker",
-  "version": "1.0.5",
-  "description": "github action for setuping docker",
+  "name": "@zmicro-design/action-setup-docker",
+  "version": "0.0.0",
+  "description": "GitHub Action to Setup Docker",
   "keywords": [
     "action",
     "zmicro",
