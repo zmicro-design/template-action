@@ -1,0 +1,32 @@
+name: 'Setup Docker (+Buildx) with Zmicro'
+description: 'github action for setuping docker (+buildx) with Zmicro'
+author: 'Zero <GitHub: whatwewant>'
+branding:
+  icon: 'message-square'
+  color: 'green'
+inputs:
+  version:
+    required: false
+    description: specify zmicro version
+outputs:
+  random-number:
+    description: 'Random number'
+    value: ${{ steps.random-number-generator.outputs.random-number }}
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Zmicro
+      uses: zmicro-design/action-setup-zmicro@v1
+
+    - name: Setup Docker CLI
+      shell: bash
+      run: zmicro package install docker
+
+    # @TODO
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+
+    - name: Set up Docker Buildx
+      shell: bash
+      run: zmicro package install --bootstrap-service docker-buildx
